@@ -13,71 +13,60 @@ import org.springframework.stereotype.Repository;
 public class ProdutoRepository {
 
     private List<Produto> produtos = new ArrayList<Produto>();
-
-    private Integer ultimoId;
+    private Integer ultimoId = 0;
 
     /**
-     * Metodo para retornar uma lista de produtos
+     * Método para retornar uma lista de produtos.
      * 
-     * @return Lista de produtos
+     * @return Lista de produtos.
      */
     public List<Produto> obterTodos() {
-
         return produtos;
     }
 
     /**
-     * Metodo que retorna o produto pelo seu id
+     * Método que retorna o produto pelo seu ID.
      * 
-     * @param id do produto que será localizado.
-     * @return retorna o produto caso seja encontrado
+     * @param id O ID do produto que será localizado.
+     * @return Retorna o produto caso seja encontrado.
      */
-
     public Optional<Produto> obterPorId(Integer id) {
-
-        return produtos.stream().filter(produtos -> produtos.getId() == id).findFirst();
+        return produtos.stream().filter(produto -> produto.getId() == id).findFirst();
     }
 
     /**
-     * Metodo para adicionar produto na lista
+     * Método para adicionar um produto na lista.
      * 
-     * @param produto que sera adicionado
-     * @return retorna o produto que será adicionado na lista
+     * @param produto O produto que será adicionado.
+     * @return Retorna o produto que será adicionado na lista.
      */
-
     public Produto adicionar(Produto produto) {
-
         ultimoId++;
         produto.setId(ultimoId);
         produtos.add(produto);
         return produto;
-
     }
 
     /**
-     * Metodo para deletar produto por id
+     * Método para deletar um produto pelo seu ID.
      * 
-     * @param id do prduto a ser deletado
+     * @param id O ID do produto a ser deletado.
      */
     public void deletar(Integer id) {
-
         produtos.removeIf(produto -> produto.getId() == id);
-
     }
 
     /**
-     * Metodo para atualizar produto na lista
-     * @param produto que sera atualizado
-     * @return retorna o produto apos atualizar a lista
+     * Método para atualizar um produto na lista.
+     * 
+     * @param produto O produto que será atualizado.
+     * @return Retorna o produto após atualizar a lista.
      */
     public Produto atualizar(Produto produto) {
-
         Optional<Produto> produtoEncontrado = obterPorId(produto.getId());
 
         if (produtoEncontrado.isEmpty()) {
-
             throw new InputMismatchException("Produto não encontrado");
-
         }
 
         deletar(produto.getId());
