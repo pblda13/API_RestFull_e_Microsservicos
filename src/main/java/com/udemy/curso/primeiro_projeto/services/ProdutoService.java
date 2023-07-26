@@ -1,6 +1,5 @@
 package com.udemy.curso.primeiro_projeto.services;
 
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.udemy.curso.primeiro_projeto.model.Produto;
-import com.udemy.curso.primeiro_projeto.repository.ProdutoRepository;
+import com.udemy.curso.primeiro_projeto.repository.ProdutoRepository_old;
 
 @Service
 public class ProdutoService {
 
     @Autowired
-    private ProdutoRepository produtoRepository;
+    private ProdutoRepository_old produtoRepository;
 
     /**
      * Metodo para retornar uma lista de produtos

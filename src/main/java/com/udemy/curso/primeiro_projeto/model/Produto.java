@@ -1,17 +1,27 @@
 package com.udemy.curso.primeiro_projeto.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+
+@Entity
 public class Produto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String nome;
-
     private Integer quantidade;
-
     private Double valor;
-
     private String observacao;
-    
+
+    // Construtor vazio (sem argumentos) - Pode ser necessário para fins de serialização
+    public Produto() {
+    }
+
+    // Getters e Setters
 
     public Integer getId() {
         return id;
@@ -52,5 +62,4 @@ public class Produto {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
-
 }
