@@ -1,4 +1,4 @@
-package com.udemy.curso.primeiro_projeto.controller;
+package com.udemy.curso.primeiro_projeto.view.controller;
 
 import java.util.List;
 import java.util.Optional;

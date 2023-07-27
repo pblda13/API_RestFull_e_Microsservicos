@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import com.udemy.curso.primeiro_projeto.model.Produto;
 import com.udemy.curso.primeiro_projeto.model.exception.ResourceNotFoundException;
 
-import org.springframework.stereotype.Repository;
+
 
 @Repository
 public class ProdutoRepository_old {
